@@ -1,13 +1,15 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var cssnano = require('gulp-cssnano');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
-var fs = require('fs');
-var path = require('path');
 var es = require('event-stream');
+var fs = require('fs');
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+var newer = require('gulp-newer');
+var path = require('path');
+var rename = require('gulp-rename');
+var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
+
 var
     jsBase = 'src/js',
     jsSources = ['src/js/**/*.js'],
@@ -60,6 +62,19 @@ gulp.task('scripts', function() {
 
 });
 
+// Copy react.js and react-dom.js to assets/js/src/vendor
+// only if the copy in node_modules is "newer"
+gulp.task('copy-react', function() {
+    return gulp.src('node_modules/react/dist/react.js')
+        .pipe(newer(outputDir + '/js/vendor/react.js'))
+        .pipe(gulp.dest(outputDir + '/js/vendor'));
+});
+
+gulp.task('copy-react-dom', function() {
+    return gulp.src('node_modules/react-dom/dist/react-dom.js')
+        .pipe(newer(outputDir + '/js/vendor/react-dom.js'))
+        .pipe(gulp.dest(outputDir + '/js/src/vendor'));
+});
 
 gulp.task('watch', function() {
     gulp.watch(sassSources, ['sass']);
