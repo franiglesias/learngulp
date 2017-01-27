@@ -1,0 +1,15 @@
+@import "type";
+
+h1 {
+    font: {
+        family: $family;
+        size: $fontbase * 1.7;
+    }
+}
+
+p {
+    font: {
+        family: $family;
+        size: $fontbase;
+    }
+}

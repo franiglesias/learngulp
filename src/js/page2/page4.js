@@ -1,0 +1,1 @@
+var mypage = 2;

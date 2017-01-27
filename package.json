@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "event-stream": "^3.3.4",
+    "gulp": "latest",
+    "gulp-coffee": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest",
+    "jshint": "^2.9.4"
+  },
+  "name": "learngulp",
+  "version": "1.0.0",
+  "description": "Playground to learn and practice gulp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "learning"
+  ],
+  "author": "Fran Iglesias",
+  "license": "MIT"
+}
